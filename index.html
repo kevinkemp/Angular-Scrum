@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+    <script src="http://code.angularjs.org/angular-1.0.0rc12.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="app.css">
+
+    <title>AngularJS SCRUM</title>
+</head>
+<body>
+<div ng-app="myApp">
+    <div id="app" ng-controller="TaskController">
+        <div class="page-header">
+            <h1>AngularJS SCRUM</h1>
+        </div>
+        <span class="story-title">Story Title goes here</span>
+        <span class="task-progress-status offset11">{{doneTasks.length}} / {{tasks.length}} tasks completed</span>
+        <br/>
+        <div class="form-actions">
+            <div class="input-append">
+                <form ng-submit="addTask(taskCreationString);resetForm();">
+                    <input class="span3" ng-model="taskCreationString" size="16" type="text" placeholder="Format: {Title} {Effort}">
+                    <button class="btn btn-success" type="button" ng-disabled="!taskCreationString" ng-click="addTask(taskCreationString);resetForm();">Add Task</button>
+                </form>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3"><task-status status="statuses.todo" tasks="todoTasks" title="titles.todo"></task-status></div>
+                <div class="span3"><task-status status="statuses.impeded" tasks="impededTasks" title="titles.impeded"></task-status></div>
+                <div class="span3"><task-status status="statuses.inProgress" tasks="inProgressTasks" title="titles.inProgress"></task-status></div>
+                <div class="span3"><task-status status="statuses.done" tasks="doneTasks" title="titles.done"></task-status></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+body {
+	background-color: gray;
+}
+.form-actions {
+	background-color: gray;
+}
+.recently-dropped {
+	border: 4px yellow solid;
+}
+.ui-state-highlight {
+	border: 1px black solid;
+    background-color: black;
+}
+ul.thumbnails {
+	list-style-type: none;
+	margin-left: 0px;
+	min-height: 110px;
+	min-width: 130px;
+	margin: 0px;
+}
+ul.thumbnails > li {
+	width: 100%;
+	margin: 0px;
+}
+.thumbnail {
+	border: 1px solid black;
+	display: block;
+}
+.thumbnail.todo {
+	background-color: bisque;
+}
+.thumbnail.in-progress {
+	background-color: darkkhaki;
+}
+.thumbnail.impeded {
+	background-color: crimson;
+}
+.thumbnail.done {
+	background-color: lightgreen;
+}
+.thumbnail p {
+	margin-bottom: 0px;
+}
+.thumbnail p > span {
+	font-weight: bold;
+}
+.thumbnail p > span:first-child {
+	float: left;
+}
+.thumbnail p > span:last-child:not(:first-child) {
+	float: right;
+}
+.thumbnail hr {
+	border-color: black;
+	margin-top: 0px;
+	margin-bottom: 2px;
+}
+.task-progress-status {
+	background-color: lightgreen;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.story-title {
+	padding-left: 20px;
+	font-size: 18px;
+	font-weight: bold;
+}

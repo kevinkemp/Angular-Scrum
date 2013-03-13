@@ -1,4 +1,4 @@
-Angular-Scrum
-=============
+angular-sticky-notes
+====================
 
-an example scrum app built with angularjs
+A sticky notes application made with AngularJS.
