@@ -1,4 +1,4 @@
 angular-sticky-notes
 ====================
 
-A sticky notes application made with AngularJS.
+An example Scrum application made with AngularJS.
