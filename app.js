@@ -84,6 +84,19 @@ angular.module('myApp', [])
             
         }
     })
+    .directive('story', function () {
+        return {
+            restrict: 'E',
+            scope: {
+                tasks: '=',
+                title: '@'
+            },
+            templateUrl: 'partials/story-directive.html',
+            link: function (scope, element, attrs) {
+
+            }
+        }
+    })
     .directive('taskStatus', function ($log) {
         return {
             restrict: 'E',
@@ -92,7 +105,7 @@ angular.module('myApp', [])
                 status: '=',
                 title: '='
             },
-            templateUrl: "partials/task-status-directive.html",
+            templateUrl: 'partials/task-status-directive.html',
             link: function (scope, element, attrs) {
                 var updateOrder = function() {
                     angular.forEach($('task-status task'), function(element) {

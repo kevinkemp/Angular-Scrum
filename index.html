@@ -14,29 +14,12 @@
 </head>
 <body>
 <div ng-app="myApp">
-    <div id="app" ng-controller="TaskController">
+    <div id="app">
         <div class="page-header">
             <h1>AngularJS SCRUM</h1>
         </div>
-        <span class="story-title">Story Title goes here</span>
-        <span class="task-progress-status offset11">{{doneTasks.length}} / {{tasks.length}} tasks completed</span>
-        <br/>
-        <div class="form-actions">
-            <div class="input-append">
-                <form ng-submit="addTask(taskCreationString);resetForm();">
-                    <input class="span3" ng-model="taskCreationString" size="16" type="text" placeholder="Format: {Title} {Effort}">
-                    <button class="btn btn-success" type="button" ng-disabled="!taskCreationString" ng-click="addTask(taskCreationString);resetForm();">Add Task</button>
-                </form>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span3"><task-status status="statuses.todo" tasks="todoTasks" title="titles.todo"></task-status></div>
-                <div class="span3"><task-status status="statuses.impeded" tasks="impededTasks" title="titles.impeded"></task-status></div>
-                <div class="span3"><task-status status="statuses.inProgress" tasks="inProgressTasks" title="titles.inProgress"></task-status></div>
-                <div class="span3"><task-status status="statuses.done" tasks="doneTasks" title="titles.done"></task-status></div>
-            </div>
-        </div>
+        <story title="My story title"></story>
+        <story title="My other story title"></story>
     </div>
 </div>
 </body>
