@@ -5,7 +5,7 @@ scrumApp.directive('story', function () {
             tasks: '=',
             title: '@'
         },
-        templateUrl: 'partials/story-directive.html',
+        templateUrl: 'directives/story-directive.html',
         link: function (scope, element, attrs) {
 
         }

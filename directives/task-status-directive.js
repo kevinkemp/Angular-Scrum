@@ -6,7 +6,7 @@ scrumApp.directive('taskStatus', function ($log) {
             status: '=',
             title: '='
         },
-        templateUrl: 'partials/task-status-directive.html',
+        templateUrl: 'directives/task-status-directive.html',
         link: function (scope, element, attrs) {
             var updateOrder = function() {
                 angular.forEach($('task-status task'), function(element) {
