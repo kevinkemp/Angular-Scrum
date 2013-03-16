@@ -6,11 +6,9 @@
     <script src="http://code.angularjs.org/angular-1.0.0rc12.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
     <script type="text/javascript" src="app.js"></script>
-    <script type="text/javascript" src="services/tasksService.js"></script>
-    <script type="text/javascript" src="directives/story-directive.js"></script>
-    <script type="text/javascript" src="directives/task-directive.js"></script>
-    <script type="text/javascript" src="directives/task-status-directive.js"></script>
-    <script type="text/javascript" src="controllers/TaskController.js"></script>
+    <script type="text/javascript" src="services.js"></script>
+    <script type="text/javascript" src="directives.js"></script>
+    <script type="text/javascript" src="controllers.js"></script>
 
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
     <link rel="stylesheet" href="app.css">
@@ -19,12 +17,13 @@
 </head>
 <body>
 <div ng-app="scrum">
-    <div id="app">
+    <div id="app" ng-Controller="StoryController">
         <div class="page-header">
             <h1>AngularJS SCRUM</h1>
         </div>
-        <story title="My story title"></story>
-        <story title="My other story title"></story>
+        <div ng-Repeat="story in stories">
+            <story id="story.id" title="story.title"></story>
+        </div>
     </div>
 </div>
 </body>

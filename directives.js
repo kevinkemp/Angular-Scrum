@@ -1,3 +1,18 @@
+scrumApp.directive('story', function () {
+    return {
+        restrict: 'E',
+        scope: {
+            storyId: '=id',
+            tasks: '=',
+            title: '='
+        },
+        templateUrl: 'directives/story-directive.html',
+        link: function (scope, element, attrs) {
+            
+        }
+    }
+});
+
 scrumApp.directive('taskStatus', function ($log) {
     return {
         restrict: 'E',
@@ -8,10 +23,13 @@ scrumApp.directive('taskStatus', function ($log) {
         },
         templateUrl: 'directives/task-status-directive.html',
         link: function (scope, element, attrs) {
+            scope.storyId = scope.$parent.storyId;
             var updateOrder = function() {
                 angular.forEach($('task-status task'), function(element) {
                     var task = _.findWhere(scope.$parent.tasks, {id: parseInt(element.id)});
-                    task.order = $(element).closest('li').index();
+                    if (task) {
+                        task.order = $(element).closest('li').index();
+                    }
                 });
             }
             var updateTask = function(event, ui) {
@@ -36,6 +54,28 @@ scrumApp.directive('taskStatus', function ($log) {
                 receive: updateTask,//for receiving from a different list
                 change: updateOrder//for receiving from same list
             });
+        }
+    };
+});
+
+//decided to inject the service here rather than putting deleteTask on the taskController and binding the method b/c method binding is so terrible in angular
+scrumApp.directive('task', function (tasksService) {
+    return {
+        restrict: 'E',
+        scope: {
+            task: '='
+        },
+        link:function (scope, element, attrs) {
+            scope.storyId = scope.$parent.storyId;
+            scope.deleteTask = function(taskId) {
+                tasksService.deleteTask(scope.storyId, taskId);
+            }
+            //todo: find way to make this fire only after already instantiated?
+            // element = element.closest('li');
+            // element.addClass('recently-dropped');
+            // setTimeout(function(){
+            //     element.removeClass('recently-dropped')
+            // }, 1000);
         }
     };
 });

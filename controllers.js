@@ -1,6 +1,9 @@
-scrumApp.controller('TaskController', ['$scope', '$filter', 'tasksService', function ($scope, $filter, tasksService) {
+scrumApp.controller('StoryController', ['$scope', '$filter', 'storiesService', function ($scope, $filter, storiesService) {
+    $scope.stories = storiesService.stories();
+}]);
 
-    $scope.tasks = tasksService.tasks();
+scrumApp.controller('TaskController', ['$scope', '$filter', 'tasksService', function ($scope, $filter, tasksService) {
+    $scope.tasks = tasksService.tasks($scope.storyId);
     //need to redo filters whenever tasks changes
     $scope.$watch('tasks', function (newValue, oldValue) {
         setFilteredTaskViews();
@@ -8,9 +11,6 @@ scrumApp.controller('TaskController', ['$scope', '$filter', 'tasksService', func
     $scope.statuses = TaskStatus;
     $scope.titles = Titles;
     setFilteredTaskViews();
-
-    //for debugging
-    mytasks = $scope.tasks;
 
     function setFilteredTaskViews() {
         var sortedTasks = _.sortBy($scope.tasks, 'order');
@@ -27,10 +27,12 @@ scrumApp.controller('TaskController', ['$scope', '$filter', 'tasksService', func
     }
     $scope.addTask = function (taskCreationString) {
         if(taskCreationString != '') {
-            tasksService.addTask(taskCreationString);
+            if (tasksService.addTask($scope.storyId, taskCreationString)) {
+                resetForm();
+            }
         }
     };
-    $scope.resetForm = function() {
+    function resetForm () {
         $scope.taskCreationString = '';
     };
 }]);

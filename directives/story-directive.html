@@ -1,12 +1,12 @@
 <div ng-controller="TaskController">
 <span class="story-title">{{title}}</span>
-<span class="task-progress-status offset11">{{doneTasks.length}} / {{tasks.length}} tasks completed</span>
+<span class="task-progress-status pull-right">{{doneTasks.length}} / {{tasks.length}} tasks completed</span>
 <br/>
 <div class="form-actions">
     <div class="input-append">
-        <form ng-submit="addTask(taskCreationString);resetForm();">
+        <form ng-submit="addTask(taskCreationString);">
             <input class="span3" ng-model="taskCreationString" size="16" type="text" placeholder="Format: {Title} {Effort}">
-            <button class="btn btn-success" type="button" ng-disabled="!taskCreationString" ng-click="addTask(taskCreationString);resetForm();">Add Task</button>
+            <button class="btn btn-success" type="button" ng-disabled="!taskCreationString" ng-click="addTask(taskCreationString);">Add Task</button>
         </form>
     </div>
 </div>

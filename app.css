@@ -1,8 +1,12 @@
 body {
 	background-color: gray;
 }
+.page-header {
+	border-bottom: none;
+}
 .form-actions {
 	background-color: gray;
+	border-top: none;
 }
 .recently-dropped {
 	border: 4px yellow solid;
@@ -67,4 +71,5 @@ ul.thumbnails > li {
 }
 story > div {
 	border: 1px black solid;
+	padding-bottom: 30px;
 }
